@@ -21,7 +21,7 @@ def login_view(request):
         matric = request.POST.get('matric')
         password = request.POST.get('password')
         request.session['matric'] = matric
-        return redirect('cgpa_calculator')
+        return redirect('dashboard')
     return render(request, 'index.html')
 
 
@@ -63,7 +63,6 @@ def download_cgpa_pdf(request):
     pass
 
 
-@login_required
 def cgpa_calculator_view(request):
     if request.method == 'POST':
         student_info = {
