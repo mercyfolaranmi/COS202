@@ -28,12 +28,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-r%b(29_-*m9g9gh-_q=c_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-ALLOWED_HOSTS.extend(['localhost', '127.0.0.1'])
-
 
 # Application definition
 
@@ -136,3 +134,9 @@ AUTH_USER_MODEL = 'main.User'
 LOGIN_REDIRECT_URL = 'cgpa_calculator'  # Redirect to CGPA calculator after login
 LOGOUT_REDIRECT_URL = 'login'  # Redirect to login page after logout
 LOGIN_URL = '/login/'  # URL for login required decorator
+CSRF_TRUSTED_ORIGINS = [
+    'https:// cgpa-calculator-qdqu.onrender.com',
+    'https://*.onrender.com',
+]  # <-- ADD THIS
+CSRF_COOKIE_SECURE = True  # <-- ADD THIS
+SESSION_COOKIE_SECURE = True  # <-- ADD THIS

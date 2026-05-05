@@ -2,8 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.cgpa_calculator_view, name='home'),
-    path('login/', views.login_view, name='login'),
+    path('', views.login_view, name='login'),
     path('dashboard/', views.dashboard_view, name='dashboard'),
     path('logout/', views.logout_view, name='logout'),
     path('cgpa/', views.cgpa_calculator_view, name='cgpa_calculator'),
