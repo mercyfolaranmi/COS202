@@ -133,6 +133,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #ADD THIS AT THE BOTTOM
 AUTH_USER_MODEL = 'main.User'  
 # Login redirect
-LOGIN_REDIRECT_URL = 'dashboard'  # Redirect to CGPA calculator after login
+LOGIN_REDIRECT_URL = 'cgpa_calculator'  # Redirect to CGPA calculator after login
 LOGOUT_REDIRECT_URL = 'login'  # Redirect to login page after logout
 LOGIN_URL = '/login/'  # URL for login required decorator

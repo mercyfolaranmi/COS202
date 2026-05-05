@@ -20,8 +20,12 @@ def login_view(request):
     if request.method == 'POST':
         matric = request.POST.get('matric')
         password = request.POST.get('password')
-        request.session['matric'] = matric
-        return redirect('dashboard')
+        user = authenticate(request, username=matric, password=password)
+        if user:
+            login(request, user)
+            return redirect('cgpa_calculator')
+        else:
+            messages.error(request, 'Invalid matric number or password!')
     return render(request, 'index.html')
 
 
@@ -62,7 +66,7 @@ def signup_view(request):
 def download_cgpa_pdf(request):
     pass
 
-
+@login_required
 def cgpa_calculator_view(request):
     if request.method == 'POST':
         student_info = {
